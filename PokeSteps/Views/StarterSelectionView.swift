@@ -14,8 +14,7 @@ struct StarterSelectionView: View {
         NavigationStack {
             // Placeholder
             ForEach(Pokemon.starters) { starter in
-                Text("\(starter.name.capitalized)")
-                    .font(.system(size: 16, weight: .regular, design: .monospaced))
+                PokemonView(pokemon: starter)
             }
         }
     }
