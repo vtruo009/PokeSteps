@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StarterSelectionView: View {
     @StateObject var pokemonData: PokemonData = PokemonData()
-    let buttonW: Double = 100
+    let buttonW: Double = 300
     let buttonH: Double = 50
     let buttonColor: Color = Color(red: 42/255, green: 117/255, blue: 187/255)
     var selectedStarter: Pokemon? = nil
@@ -41,6 +41,7 @@ struct StarterSelectionView: View {
                 Spacer()
             }
             .navigationTitle(Text("Select Starter"))
+            .environmentObject(pokemonData)
         }
     }
 }

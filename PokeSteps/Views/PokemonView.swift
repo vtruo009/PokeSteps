@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PokemonView: View {
+    @EnvironmentObject var pokemonData: PokemonData
     var pokemon: Pokemon
     let dimension: Double = 140
     
     var body: some View {
-        let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        let pokemonID: Int = pokemonData.getPokemonID(pokemon: pokemon)
+        let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonID).png"
         VStack {
             AsyncImage(url: URL(string: url)) { image in
                 image
@@ -32,5 +34,5 @@ struct PokemonView: View {
 }
 
 #Preview {
-    PokemonView(pokemon: Pokemon.starters[0])
+    PokemonView(pokemon: Pokemon.starters[0]).environmentObject(PokemonData())
 }

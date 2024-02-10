@@ -15,7 +15,7 @@ struct Response: Decodable {
     }
 }
 
-struct Pokemon: Decodable, Identifiable {
+struct Pokemon: Decodable, Identifiable{
     var id = UUID()
     
     var name: String
