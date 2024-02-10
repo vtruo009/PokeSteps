@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var pokemonData: PokemonData = PokemonData()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Text("\(pokemonData.pokemons.count)")
+        ForEach(pokemonData.pokemons) { pokemon in
+            Text("\(pokemon.name)")
         }
-        .padding()
     }
 }
 
