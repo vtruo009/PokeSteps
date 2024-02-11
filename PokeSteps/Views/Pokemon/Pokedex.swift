@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokedexView: View {
-    @StateObject var pokemonData: PokemonData = PokemonData()
+    @StateObject var pokemonManager: PokemonManager = PokemonManager()
     
     private let adaptiveColumns = [
         GridItem(.adaptive(minimum: 150))
@@ -18,7 +18,7 @@ struct PokedexView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
-                    ForEach(pokemonData.filteredPokemons) { pokemon in
+                    ForEach(pokemonManager.filteredPokemons) { pokemon in
                         Button {
                             print("Selected \(pokemon.name)!")
                         } label: {
@@ -27,10 +27,10 @@ struct PokedexView: View {
                     }
                 }
                 .navigationTitle("Pokedex")
-                .environmentObject(pokemonData)
-                .animation(.easeIn(duration: 0.3), value: pokemonData.filteredPokemons.count)
+                .environmentObject(pokemonManager)
+                .animation(.easeIn(duration: 0.3), value: pokemonManager.filteredPokemons.count)
             }
-            .searchable(text: $pokemonData.searchText)
+            .searchable(text: $pokemonManager.searchText)
         }
     }
 }

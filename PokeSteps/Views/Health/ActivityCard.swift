@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StatsCard: View {
+struct AvtivityCard: View {
     let cardWidth: Double = 320
     let cardHeight: Double = 200
     
@@ -35,5 +35,5 @@ struct StatsCard: View {
 }
 
 #Preview {
-    StatsCard()
+    AvtivityCard()
 }

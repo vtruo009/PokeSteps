@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PokemonData: ObservableObject {
+class PokemonManager: ObservableObject {
     @Published var pokemons: [Pokemon] = []
     @Published var searchText: String = ""
     

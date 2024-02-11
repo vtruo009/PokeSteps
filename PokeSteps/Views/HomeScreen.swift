@@ -16,8 +16,8 @@ struct HomeScreenView: View {
     var body: some View {
         VStack {
             LazyVGrid(columns: adaptiveColumns) {
-                StatsCard()
-                StatsCard()
+                AvtivityCard()
+                AvtivityCard()
             }
         }
     }
