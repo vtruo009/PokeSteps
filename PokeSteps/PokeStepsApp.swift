@@ -11,7 +11,7 @@ import SwiftUI
 struct PokeStepsApp: App {
     var body: some Scene {
         WindowGroup {
-            StarterSelectionView()
+            PokedexView()
         }
     }
 }
