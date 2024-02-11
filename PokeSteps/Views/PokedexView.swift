@@ -10,14 +10,20 @@ import SwiftUI
 struct PokedexView: View {
     @StateObject var pokemonData: PokemonData = PokemonData()
     
+    private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
     var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(pokemonData.pokemons) { pokemon in
-                    Button {
-                        print("Selected \(pokemon.name)!")
-                    } label: {
-                        PokemonView(pokemon: pokemon)
+                LazyVGrid(columns: adaptiveColumns, spacing: 10) {
+                    ForEach(pokemonData.pokemons) { pokemon in
+                        Button {
+                            print("Selected \(pokemon.name)!")
+                        } label: {
+                            PokemonView(pokemon: pokemon)
+                        }
                     }
                 }
             }
