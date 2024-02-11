@@ -19,12 +19,10 @@ struct PokedexView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(pokemonData.filteredPokemons) { pokemon in
-                        if pokemon.isUnlocked {
-                            Button {
-                                print("Selected \(pokemon.name)!")
-                            } label: {
-                                PokemonView(pokemon: pokemon)
-                            }
+                        Button {
+                            print("Selected \(pokemon.name)!")
+                        } label: {
+                            PokemonView(pokemon: pokemon)
                         }
                     }
                 }

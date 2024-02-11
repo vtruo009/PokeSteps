@@ -27,7 +27,7 @@ struct PokemonView: View {
             }
             .background(.thinMaterial)
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            Text("\(pokemon.name.capitalized)")
+            Text("\(pokemon.isUnlocked ? pokemon.name.capitalized : "?????")")
                 .font(.system(size: 16, weight: .regular, design: .monospaced))
         }
     }
