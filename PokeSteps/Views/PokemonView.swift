@@ -13,7 +13,7 @@ struct PokemonView: View {
     let dimension: Double = 140
     
     var body: some View {
-        let pokemonID: Int = pokemonData.getPokemonID(pokemon: pokemon)
+        let pokemonID: Int = pokemon.isUnlocked ? pokemonData.getPokemonID(pokemon: pokemon) : 0
         let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonID).png"
         VStack {
             AsyncImage(url: URL(string: url)) { image in

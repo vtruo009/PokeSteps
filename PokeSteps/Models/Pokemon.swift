@@ -20,6 +20,7 @@ struct Pokemon: Decodable, Identifiable{
     
     var name: String
     var url: String
+    var isUnlocked: Bool = false
     
     enum CodingKeys: CodingKey {
         case name

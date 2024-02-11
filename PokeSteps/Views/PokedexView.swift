@@ -24,6 +24,7 @@ struct PokedexView: View {
                         } label: {
                             PokemonView(pokemon: pokemon)
                         }
+                        .disabled(!pokemon.isUnlocked)
                     }
                 }
             }
