@@ -9,9 +9,16 @@ import Foundation
 
 class PokemonData: ObservableObject {
     @Published var pokemons: [Pokemon] = []
+    @Published var searchText: String = ""
     
     init() {
         loadPokemons()
+    }
+    
+    var filteredPokemons: [Pokemon] {
+        return searchText == "" ? pokemons : pokemons.filter {
+            $0.name.contains(searchText.lowercased())
+        }
     }
     
     func loadPokemons() {
@@ -29,5 +36,4 @@ class PokemonData: ObservableObject {
         }
         return 0
     }
-
 }

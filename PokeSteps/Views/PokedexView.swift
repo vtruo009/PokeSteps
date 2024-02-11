@@ -18,18 +18,21 @@ struct PokedexView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
-                    ForEach(pokemonData.pokemons) { pokemon in
-                        Button {
-                            print("Selected \(pokemon.name)!")
-                        } label: {
-                            PokemonView(pokemon: pokemon)
+                    ForEach(pokemonData.filteredPokemons) { pokemon in
+                        if pokemon.isUnlocked {
+                            Button {
+                                print("Selected \(pokemon.name)!")
+                            } label: {
+                                PokemonView(pokemon: pokemon)
+                            }
                         }
-                        .disabled(!pokemon.isUnlocked)
                     }
                 }
+                .navigationTitle("Pokedex")
+                .environmentObject(pokemonData)
+                .animation(.easeIn(duration: 0.3), value: pokemonData.filteredPokemons.count)
             }
-            .navigationTitle("Pokedex")
-            .environmentObject(pokemonData)
+            .searchable(text: $pokemonData.searchText)
         }
     }
 }
