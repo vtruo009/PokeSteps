@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StepCounterView: View {
+    @EnvironmentObject var healthManager: HealthManager
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -16,7 +18,9 @@ struct StepCounterView: View {
                     .frame(width: 250)
                     .padding()
                 Spacer()
-                ActivityCardView(activity: Activity(name: "steps", amount: "8,291", goal: "10,000", image: "figure.walk"))
+                if !healthManager.activities.isEmpty {
+                    ActivityCardView(activity: healthManager.activities[0])
+                }
                 Spacer()
             }
             .toolbar {
@@ -29,10 +33,14 @@ struct StepCounterView: View {
                 }
             }
             .toolbar(.visible, for: .navigationBar)
+            .onAppear() {
+                print("Creating the health manager...")
+                healthManager.fetchStepCount()
+            }
         }
     }
 }
 
 #Preview {
-    StepCounterView()
+    StepCounterView().environmentObject(HealthManager())
 }
