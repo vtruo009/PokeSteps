@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Activity {
     var name: String
-    var progress: String
+    var amount: String
     var goal: String
     var image: String
 }
@@ -26,13 +26,15 @@ struct ActivityCardView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
             VStack {
                 HStack(alignment: .center) {
-                    Text("Goal: \(activity.goal)").font(.system(.caption, design: .monospaced))
+                    VStack(alignment: .leading) {
+                        Text("Goal: \(activity.goal)").font(.system(.caption, design: .monospaced))
+                    }
                     Spacer()
                     Image(systemName: activity.image)
                         .foregroundColor(.green)
                 }
                 VStack {
-                    Text(activity.progress).font(.system(size: 36, design: .monospaced))
+                    Text(activity.amount).font(.system(size: 36, design: .monospaced))
                     Text(activity.name)
                 }
                 .padding(.top, 10)
@@ -40,9 +42,10 @@ struct ActivityCardView: View {
             .padding()
         }
         .padding()
+        .frame(width: cardWidth, height: cardHeight)
     }
 }
 
 #Preview {
-    ActivityCardView(activity: Activity(name: "steps", progress: "4,201", goal: "10,000", image: "figure.walk"))
+    ActivityCardView(activity: Activity(name: "steps", amount: "4,201", goal: "10,000", image: "figure.walk"))
 }

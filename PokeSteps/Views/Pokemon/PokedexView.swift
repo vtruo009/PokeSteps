@@ -19,14 +19,10 @@ struct PokedexView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(pokemonManager.filteredPokemons) { pokemon in
-                        Button {
-                            print("Selected \(pokemon.name)!")
-                        } label: {
-                            PokemonView(pokemon: pokemon)
-                        }
+                        PokemonView(pokemon: pokemon)
                     }
                 }
-                .navigationTitle("Pokedex")
+                .navigationTitle("Pokemons")
                 .environmentObject(pokemonManager)
                 .animation(.easeIn(duration: 0.3), value: pokemonManager.filteredPokemons.count)
             }
