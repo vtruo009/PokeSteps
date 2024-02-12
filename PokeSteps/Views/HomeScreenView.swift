@@ -16,8 +16,8 @@ struct HomeScreenView: View {
     var body: some View {
         VStack {
             LazyVGrid(columns: adaptiveColumns) {
-                AvtivityCard()
-                AvtivityCard()
+                ActivityCardView(activity: Activity(name: "steps", progress: "8,291", goal: "10,000", image: "figure.walk"))
+//                ActivityCard()
             }
         }
     }

@@ -7,7 +7,16 @@
 
 import SwiftUI
 
-struct AvtivityCard: View {
+struct Activity {
+    var name: String
+    var progress: String
+    var goal: String
+    var image: String
+}
+
+struct ActivityCardView: View {
+    @State var activity: Activity
+    
     let cardWidth: Double = 320
     let cardHeight: Double = 200
     
@@ -17,14 +26,14 @@ struct AvtivityCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
             VStack {
                 HStack(alignment: .center) {
-                    Text("Goal: 10,000").font(.system(.caption, design: .monospaced))
+                    Text("Goal: \(activity.goal)").font(.system(.caption, design: .monospaced))
                     Spacer()
-                    Image(systemName: "figure.walk")
+                    Image(systemName: activity.image)
                         .foregroundColor(.green)
                 }
                 VStack {
-                    Text("5,923").font(.system(size: 36, design: .monospaced))
-                    Text("steps")
+                    Text(activity.progress).font(.system(size: 36, design: .monospaced))
+                    Text(activity.name)
                 }
                 .padding(.top, 10)
             }
@@ -35,5 +44,5 @@ struct AvtivityCard: View {
 }
 
 #Preview {
-    AvtivityCard()
+    ActivityCardView(activity: Activity(name: "steps", progress: "4,201", goal: "10,000", image: "figure.walk"))
 }
