@@ -2,7 +2,7 @@
 
 A project inspired by Ash Ketchum's journey on building his team and becoming a Pokemon master. 
 
-## Description
+## :memo: Description
 
 PokeSteps is a Pokedex with a step counter built into it. The motivation for this application is to help users enjoy their fitness journey. Often times, people feel defeated when they do not see the end result after trying for some time, forfeiting right before the life-changing point. This projects hopes to remind users that "the getting there" is just as important as arriving at the destination.
 
@@ -14,11 +14,11 @@ PokeSteps is a Pokedex with a step counter built into it. The motivation for thi
 
 <!-- Record a demo video on when goal is achieved and Pokemon is unlocked -->
 
-## Getting Started
+## :tennis_shoes: Getting Started
 
 In order to interact with this application, you must build it on a physical device rather than a simulator for HealthKit to retrieve step counts.
 
-### Build project using a cable
+### :electric_plug: Build project using a cable
 
 1. Clone this project
 2. Open project in Xcode
@@ -35,7 +35,7 @@ In order to interact with this application, you must build it on a physical devi
 5. In the toolbar at the top, click on device name and drop down should pop up
 6. Select your iOS device
 
-### Build project over network
+### :wireless_symbol: Build project over network
 
 A couple of requirements before project can be built onto the device over network:
 
@@ -53,7 +53,52 @@ Once the above requirements are met, you should be able to select your device as
 
 For visual learners: [Run Your App on Your Physical Device (No Cable)](https://www.youtube.com/watch?v=ld-BWEyAyL0)
 
-## Tools
+## :classical_building: Architecture
+
+PokeSteps is built using the Model-View-ViewModel (MVVM) design pattern.
+
+### :card_index_dividers: Structure
+
+```
+.
+├── PokeSteps
+│   ├── Data
+│   │   ├── PokemonFetchingClient.swift             # No. 1
+│   │   └── pokemon.json                            # No. 2
+│   ├── Models                                      # Contains all models
+│   │   └── Pokemon.swift                           # No. 3
+│   ├── PokeStepsApp.swift
+│   ├── ViewModels                                  # Contains all ViewModels
+│   │   ├── HealthManager.swift                     # No. 4
+│   │   └── PokemonManager.swift                    # No. 5
+│   └── Views
+│       ├── Health                                  # Contains all user health stats related views
+│       │   ├── ActivityCardView.swift              # No. 6
+│       │   └── StepCounterView.swift               # No. 7
+│       └── Pokemon                                 # Contains all Pokemon related views
+│           ├── PokedexView.swift                   # No. 8
+│           └── PokemonView.swift                   # No. 9
+├── PokeStepsTests                                  # Contains all unit tests for project models
+│   └── PokeStepsTests.swift
+├── PokeStepsUITests                                # Contains all UI tests for project views
+│   ├── PokeStepsUITests.swift
+│   └── PokeStepsUITestsLaunchTests.swift
+└── README.md
+```
+
+| No. | Details |
+| ---- | ------- |
+| 1 | Client that makes the call to PokemonAPI to fetch the Pokemons JSON data. |
+| 2 | Contains the JSON for the first 151 Pokemons. Used for development & testing purpose to avoid hitting the API multiple times for the same data. |
+| 3 | Model containing the Pokemon struct, defining all the properties of a `Pokemon`. |
+| 4 | Manages the HealthKit integration and Health data |
+| 5 | Manages Pokemon data |
+| 6 | Displays relevant info for a `HKQuantityType` |
+| 7 | Displays the steps goal and the total steps user has taken so far today |
+| 8 | Displays all 151 Pokemons |
+| 9 | Reusable view that defines how each Pokemon should be displayed |
+
+## :toolbox: Tools
 
 * Xcode 15
 * Swift 5.5
