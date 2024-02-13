@@ -1,4 +1,4 @@
-# PokeSteps
+# :lightning_bolt: PokeSteps
 
 A project inspired by Ash Ketchum's journey on building his team and becoming a Pokemon master. 
 
@@ -14,7 +14,7 @@ PokeSteps is a Pokedex with a step counter built into it. The motivation for thi
 
 <!-- Record a demo video on when goal is achieved and Pokemon is unlocked -->
 
-## :tennis_shoes: Getting Started
+## 🔨 Getting Started
 
 In order to interact with this application, you must build it on a physical device rather than a simulator for HealthKit to retrieve step counts.
 
@@ -35,7 +35,7 @@ In order to interact with this application, you must build it on a physical devi
 5. In the toolbar at the top, click on device name and drop down should pop up
 6. Select your iOS device
 
-### :wireless_symbol: Build project over network
+### 🌐 Build project over network
 
 A couple of requirements before project can be built onto the device over network:
 
