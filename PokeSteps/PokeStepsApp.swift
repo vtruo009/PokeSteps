@@ -13,7 +13,7 @@ struct PokeStepsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            StepCounterView().environmentObject(healthManager.fe)
+            StepCounterView().environmentObject(healthManager)
         }
     }
 }

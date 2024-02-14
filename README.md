@@ -35,7 +35,7 @@ In order to interact with this application, you must build it on a physical devi
 5. In the toolbar at the top, click on device name and drop down should pop up
 6. Select your iOS device
 
-### 🌐 Build project over network
+### 🛜 Build project over network
 
 A couple of requirements before project can be built onto the device over network:
 

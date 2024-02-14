@@ -23,6 +23,7 @@
 		7C51DA1F2B76DB820002764C /* PokeStepsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51DA1E2B76DB820002764C /* PokeStepsUITests.swift */; };
 		7C51DA212B76DB820002764C /* PokeStepsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51DA202B76DB820002764C /* PokeStepsUITestsLaunchTests.swift */; };
 		7C51DA2F2B76DF7D0002764C /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C51DA2E2B76DF7D0002764C /* pokemon.json */; };
+		7CEA6B6D2B7C1EC20093DFC6 /* HealthProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA6B6C2B7C1EC20093DFC6 /* HealthProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		7C51DA1E2B76DB820002764C /* PokeStepsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStepsUITests.swift; sourceTree = "<group>"; };
 		7C51DA202B76DB820002764C /* PokeStepsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStepsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7C51DA2E2B76DF7D0002764C /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
+		7CEA6B6C2B7C1EC20093DFC6 /* HealthProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				7C3F4DEA2B78C257001D5EA2 /* ActivityCardView.swift */,
 				7C3F4DEE2B794FEE001D5EA2 /* StepCounterView.swift */,
+				7CEA6B6C2B7C1EC20093DFC6 /* HealthProgressView.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				7C3F4DEF2B794FEE001D5EA2 /* StepCounterView.swift in Sources */,
 				7C51DA062B76DB810002764C /* PokedexView.swift in Sources */,
 				7C3F4DE42B76F7E1001D5EA2 /* PokemonFetchingClient.swift in Sources */,
+				7CEA6B6D2B7C1EC20093DFC6 /* HealthProgressView.swift in Sources */,
 				7C51DA042B76DB810002764C /* PokeStepsApp.swift in Sources */,
 				7C3F4DDD2B76E4B8001D5EA2 /* Pokemon.swift in Sources */,
 			);
