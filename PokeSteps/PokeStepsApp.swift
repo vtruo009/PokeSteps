@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct PokeStepsApp: App {
-    @StateObject var healthManager: HealthManager = HealthManager()
-    
     var body: some Scene {
         WindowGroup {
-            StepCounterView().environmentObject(healthManager)
+            MainTabView()
         }
     }
 }

@@ -11,32 +11,19 @@ struct StepCounterView: View {
     @EnvironmentObject var healthManager: HealthManager
     
     var body: some View {
+        let progress: Float = Float(healthManager.stepCount.amount / healthManager.stepCount.goal)
+        
         NavigationStack {
             VStack {
                 Spacer()
-                Circle()
-                    .frame(width: 250)
-                    .padding()
-                Spacer()
-                if !healthManager.activities.isEmpty {
-                    ActivityCardView(activity: healthManager.activities[0])
-                }
-                Spacer()
+                ProgressRingView(progress: progress)
+                ActivityCardView(activity: $healthManager.stepCount)
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        print("Go to Pokemons!")
-                    } label: {
-                        Image(systemName: "circle")
-                    }
-                }
-            }
-            .toolbar(.visible, for: .navigationBar)
             .onAppear() {
                 print("Creating the health manager...")
                 healthManager.fetchStepCount()
             }
+            .navigationTitle("Today's Progress")
         }
     }
 }

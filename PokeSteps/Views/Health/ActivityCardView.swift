@@ -9,43 +9,35 @@ import SwiftUI
 
 struct Activity {
     var name: String
-    var amount: String
-    var goal: String
+    var amount: Double
+    var goal: Double = 10000
     var image: String
 }
 
 struct ActivityCardView: View {
-    @State var activity: Activity
+    @Binding var activity: Activity
     
-    let cardWidth: Double = 320
-    let cardHeight: Double = 200
+    let todayCountSize: CGFloat = 50
+    let todayCountLabelSize: CGFloat = 20
     
     var body: some View {
-        ZStack {
-            Color(uiColor: .systemGray6)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-            VStack {
-                HStack(alignment: .center) {
-                    VStack(alignment: .leading) {
-                        Text("Goal: \(activity.goal)").font(.system(.caption, design: .monospaced))
-                    }
-                    Spacer()
-                    Image(systemName: activity.image)
-                        .foregroundColor(.green)
-                }
-                VStack {
-                    Text(activity.amount).font(.system(size: 36, design: .monospaced))
-                    Text(activity.name)
-                }
-                .padding(.top, 10)
-            }
-            .padding()
-        }
-        .padding()
-        .frame(width: cardWidth, height: cardHeight)
+//        VStack {
+            Spacer()
+            Text("\(activity.amount.displayString())")
+                .font(.system(size: todayCountSize, design: .monospaced))
+            Text("\(activity.name)")
+                .font(.system(size: todayCountLabelSize, design: .monospaced))
+            Spacer()
+            Text("5,120")
+                .font(.system(size: (todayCountSize * 0.6), design: .monospaced))
+            Text("yesterday")
+                .font(.system(size: (todayCountLabelSize * 0.6), design: .monospaced))
+            Spacer()
+//        }
     }
 }
 
 #Preview {
-    ActivityCardView(activity: Activity(name: "steps", amount: "4,201", goal: "10,000", image: "figure.walk"))
+    @State var activity: Activity = Activity(name: "steps", amount: 4201, image: "figure.walk")
+    return ActivityCardView(activity: $activity)
 }

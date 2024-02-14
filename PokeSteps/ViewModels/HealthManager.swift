@@ -24,7 +24,7 @@ extension Double {
 }
 
 class HealthManager: ObservableObject {
-    @Published var activities: [Activity] = []
+    @Published var stepCount: Activity = Activity(name: "steps", amount: 4921.0, image: "figure.walk")
     
     let healthStore = HKHealthStore()
     
@@ -55,7 +55,7 @@ class HealthManager: ObservableObject {
             debugPrint("step count: \(stepCount)")
             
             DispatchQueue.main.async {
-                self.activities.append(Activity(name: "steps", amount: stepCount.displayString(), goal: "10,000", image: "figure.walk"))
+                self.stepCount.amount = stepCount
             }
         }
         
