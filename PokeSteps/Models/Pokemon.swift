@@ -38,11 +38,3 @@ struct Pokemon: Decodable, Identifiable{
         self.url = try container.decode(String.self, forKey: .url)
     }
 }
-
-extension Pokemon {
-    static let starters: [Pokemon] = [
-        Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
-        Pokemon(name: "charmander", url: "https://pokeapi.co/api/v2/pokemon/4/"),
-        Pokemon(name: "squirtle", url: "https://pokeapi.co/api/v2/pokemon/7/"),
-    ]
-}

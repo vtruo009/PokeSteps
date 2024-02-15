@@ -15,9 +15,15 @@ class PokemonManager: ObservableObject {
         loadPokemons()
     }
     
+    var lockedPokemons: [Pokemon] {
+        return pokemons.filter {
+            !$0.isUnlocked
+        }
+    }
+    
     var filteredPokemons: [Pokemon] {
         return searchText == "" ? pokemons : pokemons.filter {
-            $0.name.contains(searchText.lowercased())
+            $0.name.contains(searchText.lowercased()) && $0.isUnlocked
         }
     }
     
@@ -35,5 +41,17 @@ class PokemonManager: ObservableObject {
             return index + 1
         }
         return 0
+    }
+    
+    func getSurprisePokemons() -> [Pokemon] {
+        var surprisePokemons: [Pokemon] = []
+        
+        for i in 0...2 {
+            if let pokemon = lockedPokemons.randomElement() {
+                surprisePokemons.append(pokemon)
+            }
+        }
+        
+        return surprisePokemons
     }
 }

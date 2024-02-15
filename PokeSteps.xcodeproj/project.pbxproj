@@ -25,6 +25,7 @@
 		7C51DA2F2B76DF7D0002764C /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C51DA2E2B76DF7D0002764C /* pokemon.json */; };
 		7CEA6B6D2B7C1EC20093DFC6 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA6B6C2B7C1EC20093DFC6 /* ProgressRingView.swift */; };
 		7CEA6B6F2B7D616B0093DFC6 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA6B6E2B7D616B0093DFC6 /* MainTabView.swift */; };
+		7CEA6B712B7D96470093DFC6 /* PokemonSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA6B702B7D96470093DFC6 /* PokemonSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		7C51DA2E2B76DF7D0002764C /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
 		7CEA6B6C2B7C1EC20093DFC6 /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
 		7CEA6B6E2B7D616B0093DFC6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		7CEA6B702B7D96470093DFC6 /* PokemonSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				7C3F4DE82B774562001D5EA2 /* PokemonView.swift */,
 				7C51DA052B76DB810002764C /* PokedexView.swift */,
+				7CEA6B702B7D96470093DFC6 /* PokemonSelectionView.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				7C3F4DEF2B794FEE001D5EA2 /* StepCounterView.swift in Sources */,
 				7CEA6B6F2B7D616B0093DFC6 /* MainTabView.swift in Sources */,
 				7C51DA062B76DB810002764C /* PokedexView.swift in Sources */,
+				7CEA6B712B7D96470093DFC6 /* PokemonSelectionView.swift in Sources */,
 				7C3F4DE42B76F7E1001D5EA2 /* PokemonFetchingClient.swift in Sources */,
 				7CEA6B6D2B7C1EC20093DFC6 /* ProgressRingView.swift in Sources */,
 				7C51DA042B76DB810002764C /* PokeStepsApp.swift in Sources */,
