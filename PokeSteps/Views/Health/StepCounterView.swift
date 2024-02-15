@@ -19,10 +19,6 @@ struct StepCounterView: View {
                 ProgressRingView(progress: progress)
                 ActivityCardView(activity: $healthManager.stepCount)
             }
-            .onAppear() {
-                print("Creating the health manager...")
-                healthManager.fetchStepCount()
-            }
             .navigationTitle("Today's Progress")
         }
     }

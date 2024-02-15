@@ -21,7 +21,6 @@ struct ActivityCardView: View {
     let todayCountLabelSize: CGFloat = 20
     
     var body: some View {
-//        VStack {
             Spacer()
             Text("\(activity.amount.displayString())")
                 .font(.system(size: todayCountSize, design: .monospaced))
@@ -33,7 +32,6 @@ struct ActivityCardView: View {
             Text("yesterday")
                 .font(.system(size: (todayCountLabelSize * 0.6), design: .monospaced))
             Spacer()
-//        }
     }
 }
 

@@ -24,7 +24,7 @@ extension Double {
 }
 
 class HealthManager: ObservableObject {
-    @Published var stepCount: Activity = Activity(name: "steps", amount: 4921.0, image: "figure.walk")
+    @Published var stepCount: Activity = Activity(name: "steps", amount: 0.0, image: "figure.walk")
     
     let healthStore = HKHealthStore()
     
@@ -36,6 +36,7 @@ class HealthManager: ObservableObject {
             do {
                 debugPrint("Authorizing...")
                 try await healthStore.requestAuthorization(toShare: [], read: healthTypes)
+                self.fetchStepCount()
             } catch {
                 debugPrint("Error fetching data: \(error)")
             }
