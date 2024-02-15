@@ -29,7 +29,7 @@ struct PokemonView: View {
             .background(.thinMaterial)
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             .overlay {
-                viewStyle == .surprise ? Circle().frame(width: dimension, height: dimension) : nil
+                viewStyle == .surprise ? Image(.pokeball).resizable().frame(width: dimension, height: dimension) : nil
             }
             Text("\(pokemon.isUnlocked ? pokemon.name.capitalized : "?????")")
                 .font(.system(size: 16, weight: .regular, design: .monospaced))
@@ -45,5 +45,5 @@ extension PokemonView {
 }
 
 #Preview {
-    PokemonView(viewStyle: .pokedex, pokemon: Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")).environmentObject(PokemonManager())
+    PokemonView(viewStyle: .surprise, pokemon: Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")).environmentObject(PokemonManager())
 }
