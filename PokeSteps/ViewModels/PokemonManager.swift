@@ -46,7 +46,7 @@ class PokemonManager: ObservableObject {
     func getSurprisePokemons() -> [Pokemon] {
         var surprisePokemons: [Pokemon] = []
         
-        for i in 0...2 {
+        for _ in 0...2 {
             if let pokemon = lockedPokemons.randomElement() {
                 surprisePokemons.append(pokemon)
             }

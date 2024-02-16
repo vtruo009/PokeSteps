@@ -12,11 +12,15 @@ struct PokemonSelectionView: View {
     
     var body: some View {
         let surprisePokemons = pokemonManager.getSurprisePokemons()
-        VStack {
-            ForEach(surprisePokemons) { pokemon in
-                PokemonView(viewStyle: .surprise, pokemon: pokemon).environmentObject(pokemonManager)
+        NavigationStack {
+            VStack {
+                ForEach(surprisePokemons) { pokemon in
+                    PokemonView(viewStyle: .surprise, pokemon: pokemon)
+                }
             }
         }
+        .navigationBarBackButtonHidden()
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

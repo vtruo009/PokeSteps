@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokedexView: View {
-    @StateObject var pokemonManager: PokemonManager = PokemonManager()
+    @EnvironmentObject var pokemonManager: PokemonManager
     
     private let adaptiveColumns = [
         GridItem(.adaptive(minimum: 150))
@@ -23,7 +23,6 @@ struct PokedexView: View {
                     }
                 }
                 .navigationTitle("Pokemons")
-                .environmentObject(pokemonManager)
                 .animation(.easeIn(duration: 0.3), value: pokemonManager.filteredPokemons.count)
             }
             .searchable(text: $pokemonManager.searchText)
@@ -32,5 +31,5 @@ struct PokedexView: View {
 }
 
 #Preview {
-    PokedexView()
+    PokedexView().environmentObject(PokemonManager())
 }
