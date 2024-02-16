@@ -19,7 +19,7 @@ struct PokedexView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(pokemonManager.filteredPokemons) { pokemon in
-                        PokemonView(viewStyle: .pokedex, pokemon: pokemon)
+                        PokemonView(viewStyle: .pokedex, pokemon: binding(for: pokemon))
                     }
                 }
                 .navigationTitle("Pokemons")
@@ -27,6 +27,15 @@ struct PokedexView: View {
             }
             .searchable(text: $pokemonManager.searchText)
         }
+    }
+}
+
+extension PokedexView {
+    func binding(for pokemon: Pokemon) -> Binding<Pokemon> {
+        guard let index = pokemonManager.index(of: pokemon) else {
+            fatalError("Pokemon not found!")
+        }
+        return $pokemonManager.pokemons[index]
     }
 }
 

@@ -15,12 +15,21 @@ struct PokemonSelectionView: View {
         NavigationStack {
             VStack {
                 ForEach(surprisePokemons) { pokemon in
-                    PokemonView(viewStyle: .surprise, pokemon: pokemon)
+                    PokemonView(viewStyle: .surprise, pokemon: binding(for: pokemon))
                 }
             }
         }
         .navigationBarBackButtonHidden()
         .toolbar(.hidden, for: .tabBar)
+    }
+}
+
+extension PokemonSelectionView {
+    func binding(for pokemon: Pokemon) -> Binding<Pokemon> {
+        guard let index = pokemonManager.index(of: pokemon) else {
+            fatalError("Pokemon not found!")
+        }
+        return $pokemonManager.pokemons[index]
     }
 }
 

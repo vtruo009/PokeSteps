@@ -16,8 +16,8 @@ struct StepCounterView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                ProgressRingView(progress: progress)
-                ActivityCardView(activity: $healthManager.stepCount)
+                ProgressRingView(progress: 1.0)
+                ActivityCardView(activity: healthManager.stepCount)
             }
         }
         .onAppear() {

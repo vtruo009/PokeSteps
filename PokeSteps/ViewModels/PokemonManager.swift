@@ -54,4 +54,13 @@ class PokemonManager: ObservableObject {
         
         return surprisePokemons
     }
+    
+    func index(of pokemon: Pokemon) -> Int? {
+        for i in pokemons.indices {
+            if pokemons[i].name == pokemon.name {
+                return i
+            }
+        }
+        return nil
+    }
 }

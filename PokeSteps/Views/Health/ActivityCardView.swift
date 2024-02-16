@@ -15,7 +15,7 @@ struct Activity {
 }
 
 struct ActivityCardView: View {
-    @Binding var activity: Activity
+    var activity: Activity
     
     let todayCountSize: CGFloat = 50
     let todayCountLabelSize: CGFloat = 20
@@ -36,6 +36,6 @@ struct ActivityCardView: View {
 }
 
 #Preview {
-    @State var activity: Activity = Activity(name: "steps", amount: 4201, image: "figure.walk")
-    return ActivityCardView(activity: $activity)
+//    @State var activity: Activity = Activity(name: "steps", amount: 4201, image: "figure.walk")
+    return ActivityCardView(activity: Activity(name: "steps", amount: 4201, image: "figure.walk"))
 }
