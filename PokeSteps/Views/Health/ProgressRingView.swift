@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProgressRingView: View {
     @EnvironmentObject var healthManager: HealthManager
+    @State private var isPresented: Bool = false
     
     var progress: Float
     var color: Color = Color(red: 60/255, green: 90/255, blue: 166/255)
@@ -28,15 +29,21 @@ struct ProgressRingView: View {
                     .rotationEffect(Angle(degrees: 270))
                     .animation(.easeInOut(duration: 2.0), value: progress)
                     .overlay {
-                        progress == 1 ? NavigationLink {
-                            PokemonSelectionView()
+//                        progress == 1 ? NavigationLink {
+//                            PokemonSelectionView()
+//                        } label: {
+//                            Image(.pokeball).resizable()
+//                        } : nil
+                        progress == 1 ? Button {
+                            isPresented.toggle()
                         } label: {
                             Image(.pokeball).resizable()
-                        } : nil
+                        }.fullScreenCover(isPresented: $isPresented, content: PokemonSelectionView.init) : nil
                     }
                 
             }
             .frame(width: 200, height: 200)
+            
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PokemonView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var pokemonManager: PokemonManager
     @State var viewStyle: ViewStyle
     @Binding var pokemon: Pokemon
@@ -19,8 +20,10 @@ struct PokemonView: View {
         VStack {
             Button {
                 pokemon.isUnlocked = true
-                print("\(pokemon.name) unlocked!")
-                print(pokemon)
+                if viewStyle == .surprise {
+                    dismiss()
+                }
+                debugPrint("\(pokemon.name) unlocked!")
             } label: {
                 AsyncImage(url: URL(string: url)) { image in
                     image
