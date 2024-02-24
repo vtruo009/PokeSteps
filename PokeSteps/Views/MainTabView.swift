@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var pokemonManager: PokemonManager = PokemonManager()
-    @StateObject var healthManager: HealthManager = HealthManager()
+//    @StateObject var pokemonManager: PokemonManager = PokemonManager()
+//    @StateObject var healthManager: HealthManager = HealthManager()
     
     var body: some View {
         TabView {
