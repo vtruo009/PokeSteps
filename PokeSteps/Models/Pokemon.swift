@@ -37,4 +37,11 @@ struct Pokemon: Decodable, Identifiable{
         self.name = try container.decode(String.self, forKey: .name)
         self.url = try container.decode(String.self, forKey: .url)
     }
+    
+    func getPokedexID(in url: String) -> Int? {
+        if let id = url.split(separator: "/").last {
+            return Int(id)
+        }
+        return nil
+    }
 }

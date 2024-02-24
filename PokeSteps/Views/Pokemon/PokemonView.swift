@@ -9,14 +9,12 @@ import SwiftUI
 
 struct PokemonView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var pokemonManager: PokemonManager
     @State var viewStyle: ViewStyle
     @Binding var pokemon: Pokemon
-    let dimension: Double = 140
+    private let dimension: Double = 140
+    private let defaultUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png"
     
     var body: some View {
-        let pokemonID: Int = pokemon.isUnlocked ? pokemonManager.getPokemonID(pokemon: pokemon) : 0
-        let url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonID).png"
         VStack {
             Button {
                 pokemon.isUnlocked = true
@@ -25,7 +23,7 @@ struct PokemonView: View {
                 }
                 debugPrint("\(pokemon.name) unlocked!")
             } label: {
-                AsyncImage(url: URL(string: url)) { image in
+                AsyncImage(url: URL(string: pokemon.isUnlocked ? pokemon.url : defaultUrl)) { image in
                     image
                         .resizable()
                         .scaledToFit()
@@ -55,5 +53,5 @@ extension PokemonView {
 
 #Preview {
     @State var pokemon: Pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
-    return PokemonView(viewStyle: .surprise, pokemon: $pokemon ).environmentObject(PokemonManager())
+    return PokemonView(viewStyle: .surprise, pokemon: $pokemon)
 }

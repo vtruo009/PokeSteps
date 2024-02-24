@@ -20,8 +20,8 @@ struct MainTabView: View {
                     .tabItem { Label("Pokedex", systemImage: "folder.fill") }
             }
         }
-        .environmentObject(pokemonManager)
-        .environmentObject(healthManager)
+        .environmentObject(PokemonManager())
+        .environmentObject(HealthManager())
     }
 }
 
