@@ -19,7 +19,7 @@ struct PokedexView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(pokemonManager.filteredPokemons) { pokemon in
-                        PokemonView(viewStyle: .pokedex, pokemon: binding(for: pokemon))
+                        PokemonView(viewStyle: .pokedex, pokemon: pokemon)
                     }
                 }
                 .navigationTitle("Pokemons")

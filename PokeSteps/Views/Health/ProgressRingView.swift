@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProgressRingView: View {
     @EnvironmentObject var healthManager: HealthManager
+    @EnvironmentObject var pokemonManager: PokemonManager
+    
     @State private var isPresented: Bool = false
     
     var progress: Float
@@ -38,7 +40,9 @@ struct ProgressRingView: View {
                             isPresented.toggle()
                         } label: {
                             Image(.pokeball).resizable()
-                        }.fullScreenCover(isPresented: $isPresented, content: PokemonSelectionView.init) : nil
+                        }.fullScreenCover(isPresented: $isPresented) {
+                            PokemonSelectionView(surprisePokemons: pokemonManager.getSurprisePokemons())
+                        } : nil
                     }
                 
             }

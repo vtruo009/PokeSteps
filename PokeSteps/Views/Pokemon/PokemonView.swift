@@ -11,8 +11,7 @@ struct PokemonView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var pokemonManager: PokemonManager
     @State var viewStyle: ViewStyle
-    @State var selected: Bool = false
-    @Binding var pokemon: Pokemon
+    var pokemon: Pokemon
     private let dimension: Double = 140
     
     var body: some View {
@@ -21,8 +20,7 @@ struct PokemonView: View {
         
         VStack {
             Button {
-                pokemon.isUnlocked = true
-                selected = true
+                print("Go to Pokemon details!")
                 if viewStyle == .surprise {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                   dismiss()
@@ -41,11 +39,7 @@ struct PokemonView: View {
                 }
                 .background(.thinMaterial)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .overlay {
-                    viewStyle == .surprise ? Image(.pokeball).resizable().frame(width: dimension, height: dimension).opacity(selected ? 0 : 1) : nil
-                }
             }
-//            .disabled(viewStyle == .pokedex)
             Text("\(pokemon.isUnlocked ? pokemon.name.capitalized : "?????")")
                 .font(.system(size: 16, weight: .regular, design: .monospaced))
         }
@@ -60,6 +54,6 @@ extension PokemonView {
 }
 
 #Preview {
-    @State var pokemon: Pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
-    return PokemonView(viewStyle: .surprise, pokemon: $pokemon).environmentObject(PokemonManager())
+//    @State var pokemon: Pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
+    return PokemonView(viewStyle: .surprise, pokemon: Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")).environmentObject(PokemonManager())
 }
