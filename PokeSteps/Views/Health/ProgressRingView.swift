@@ -14,6 +14,7 @@ struct ProgressRingView: View {
     @State private var isPresented: Bool = false
     
     var progress: Float
+    var pokeballSize: CGFloat = 160
     var color: Color = Color(red: 60/255, green: 90/255, blue: 166/255)
     var buttonColor = Color(red: 1, green: 203/255, blue: 5/255)
     
@@ -30,21 +31,13 @@ struct ProgressRingView: View {
                     .foregroundColor(color)
                     .rotationEffect(Angle(degrees: 270))
                     .animation(.easeInOut(duration: 2.0), value: progress)
-                    .overlay {
-//                        progress == 1 ? NavigationLink {
-//                            PokemonSelectionView()
-//                        } label: {
-//                            Image(.pokeball).resizable()
-//                        } : nil
-                        progress == 1 ? Button {
-                            isPresented.toggle()
-                        } label: {
-                            Image(.pokeball).resizable()
-                        }.fullScreenCover(isPresented: $isPresented) {
-                            PokemonSelectionView(surprisePokemons: pokemonManager.getSurprisePokemons())
-                        } : nil
+                if progress >= 1.0 {
+                    Button {
+                        print("Unlock pokemon!")
+                    } label: {
+                        Image(.pokeball).resizable().frame(width: pokeballSize, height: pokeballSize)
                     }
-                
+                }
             }
             .frame(width: 200, height: 200)
             
@@ -52,7 +45,17 @@ struct ProgressRingView: View {
     }
 }
 
+extension ProgressRingView {
+    func binding(for pokemon: Pokemon) -> Binding<Pokemon> {
+        guard let index = pokemonManager.index(of: pokemon) else {
+            fatalError("Pokemon not found!")
+        }
+        return $pokemonManager.pokemons[index]
+    }
+}
+
 #Preview {
-    let progress: Float = 1.0
-    return ProgressRingView(progress: progress).environmentObject(HealthManager())
+    let progress: Float = 0.75
+    let goalCompletedProgress: Float = 1.0
+    return ProgressRingView(progress: goalCompletedProgress).environmentObject(HealthManager())
 }
