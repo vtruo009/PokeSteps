@@ -15,11 +15,17 @@ struct Response: Decodable {
     }
 }
 
-struct Pokemon: Decodable, Identifiable{
-    var id = UUID()
+struct PokemonPage: Codable {
+    let count: Int
+    let next: String
+    let results: [Pokemon]
+}
+
+struct Pokemon: Codable, Identifiable, Equatable {
+    let id = UUID()
     
-    var name: String
-    var url: String
+    let name: String
+    let url: String
     var isUnlocked: Bool = false
     
     enum CodingKeys: CodingKey {
@@ -46,7 +52,14 @@ struct Pokemon: Decodable, Identifiable{
     }
 }
 
+struct PokemonDetail: Codable {
+    let id: Int
+    let height: Int
+    let weight: Int
+}
+
 extension Pokemon {
+    static var samplePokemon: Pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
     static var samplePokemons: [Pokemon] = [
         Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
         Pokemon(name: "charmander", url: "https://pokeapi.co/api/v2/pokemon/4/"),

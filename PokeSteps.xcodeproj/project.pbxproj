@@ -17,6 +17,7 @@
 		7C3F4DF52B79ACDD001D5EA2 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3F4DF42B79ACDD001D5EA2 /* HealthManager.swift */; };
 		7C41D29C2B89EF3700CE0AAE /* PokemonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41D29B2B89EF3700CE0AAE /* PokemonDetailsView.swift */; };
 		7C41D29E2B8ACF7C00CE0AAE /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41D29D2B8ACF7C00CE0AAE /* AppColor.swift */; };
+		7C41D2A12B8B08A100CE0AAE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41D2A02B8B08A100CE0AAE /* Helpers.swift */; };
 		7C51DA042B76DB810002764C /* PokeStepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51DA032B76DB810002764C /* PokeStepsApp.swift */; };
 		7C51DA062B76DB810002764C /* PokedexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C51DA052B76DB810002764C /* PokedexView.swift */; };
 		7C51DA082B76DB820002764C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C51DA072B76DB820002764C /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		7C3F4DF82B79BDE7001D5EA2 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7C41D29B2B89EF3700CE0AAE /* PokemonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsView.swift; sourceTree = "<group>"; };
 		7C41D29D2B8ACF7C00CE0AAE /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		7C41D2A02B8B08A100CE0AAE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7C51DA002B76DB810002764C /* PokeSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C51DA032B76DB810002764C /* PokeStepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStepsApp.swift; sourceTree = "<group>"; };
 		7C51DA052B76DB810002764C /* PokedexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7C41D29F2B8B084800CE0AAE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C41D2A02B8B08A100CE0AAE /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7C51D9F72B76DB810002764C = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				7C3F4DF62B79AE43001D5EA2 /* PokeSteps.entitlements */,
+				7C41D29F2B8B084800CE0AAE /* Helpers */,
 				7C3F4DDA2B76E497001D5EA2 /* Models */,
 				7C3F4DD92B76E490001D5EA2 /* Views */,
 				7C3F4DDB2B76E49C001D5EA2 /* ViewModels */,
@@ -372,6 +383,7 @@
 				7C3F4DE42B76F7E1001D5EA2 /* PokemonFetchingClient.swift in Sources */,
 				7CEA6B6D2B7C1EC20093DFC6 /* ProgressRingView.swift in Sources */,
 				7C51DA042B76DB810002764C /* PokeStepsApp.swift in Sources */,
+				7C41D2A12B8B08A100CE0AAE /* Helpers.swift in Sources */,
 				7C3F4DDD2B76E4B8001D5EA2 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
