@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PokemonDetailsView: View {
-    var selectedPokemon: Pokemon
+    var pokemon: Pokemon
     
     var body: some View {
-       Text(selectedPokemon.name.capitalized)
+       Text("\(pokemon.name.capitalized) unlocked!")
+            .font(.system(size: 40, design: .monospaced))
     }
 }
 
 #Preview {
-    PokemonDetailsView(selectedPokemon: .samplePokemons[0])
+    PokemonDetailsView(pokemon: .samplePokemons[0])
 }

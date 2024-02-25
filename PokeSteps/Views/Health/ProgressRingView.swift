@@ -11,12 +11,10 @@ struct ProgressRingView: View {
     @EnvironmentObject var healthManager: HealthManager
     @EnvironmentObject var pokemonManager: PokemonManager
     
-    @State private var isPresented: Bool = false
+    @State private var showPokemonDetails: Bool = false
     
     var progress: Float
     var pokeballSize: CGFloat = 160
-    var color: Color = Color(red: 60/255, green: 90/255, blue: 166/255)
-    var buttonColor = Color(red: 1, green: 203/255, blue: 5/255)
     
     var body: some View {
         NavigationStack {
@@ -28,14 +26,20 @@ struct ProgressRingView: View {
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(progress, 1.0)))
                     .stroke(style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(color)
+                    .foregroundColor(AppColor.darkBlue)
                     .rotationEffect(Angle(degrees: 270))
                     .animation(.easeInOut(duration: 2.0), value: progress)
                 if progress >= 1.0 {
-                    Button {
-                        print("Unlock pokemon!")
-                    } label: {
-                        Image(.pokeball).resizable().frame(width: pokeballSize, height: pokeballSize)
+//                    let randomPokemon = pokemonManager.getRandomPokemon()
+                    if let randomPokemon = pokemonManager.getRandomPokemon() {
+                        NavigationLink(destination: PokemonDetailsView(pokemon: randomPokemon), isActive: $showPokemonDetails) {
+                            Text("You've unlocked all Pokemons!")
+                        }
+                        Button {
+                            self.showPokemonDetails = true
+                        } label: {
+                            Image(.pokeball).resizable().frame(width: pokeballSize, height: pokeballSize)
+                        }
                     }
                 }
             }
@@ -55,7 +59,15 @@ extension ProgressRingView {
 }
 
 #Preview {
-    let progress: Float = 0.75
     let goalCompletedProgress: Float = 1.0
-    return ProgressRingView(progress: goalCompletedProgress).environmentObject(HealthManager())
+    return ProgressRingView(progress: goalCompletedProgress)
+        .environmentObject(HealthManager())
+        .environmentObject(PokemonManager())
+}
+
+#Preview {
+    let progress: Float = 0.75
+    return ProgressRingView(progress: progress)
+        .environmentObject(HealthManager())
+        .environmentObject(PokemonManager())
 }

@@ -14,7 +14,7 @@ struct Activity {
     var image: String
 }
 
-struct ActivityCardView: View {
+struct ActivityStatsView: View {
     var activity: Activity
     
     let todayCountSize: CGFloat = 50
@@ -37,5 +37,9 @@ struct ActivityCardView: View {
 
 #Preview {
 //    @State var activity: Activity = Activity(name: "steps", amount: 4201, image: "figure.walk")
-    return ActivityCardView(activity: Activity(name: "steps", amount: 4201, image: "figure.walk"))
+    return ActivityStatsView(activity: Activity(name: "steps", amount: 4201, image: "figure.walk"))
+}
+
+#Preview {
+    return ActivityStatsView(activity: Activity(name: "steps", amount: 0, image: "figure.walk"))
 }

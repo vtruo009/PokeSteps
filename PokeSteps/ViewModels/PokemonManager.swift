@@ -63,4 +63,11 @@ class PokemonManager: ObservableObject {
         }
         return nil
     }
+    
+    func getRandomPokemon() -> Pokemon? {
+        if let randomPokemon = lockedPokemons.randomElement() {
+            return randomPokemon
+        }
+        return nil
+    }
 }

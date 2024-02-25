@@ -20,7 +20,7 @@ struct PokemonSelectionView: View {
         NavigationStack {
             ForEach(surprisePokemons) { pokemon in
                 NavigationLink {
-                    PokemonDetailsView(selectedPokemon: pokemon)
+                    PokemonDetailsView(pokemon: pokemon)
 //                        .toolbar(.hidden, for: .navigationBar)
                 } label: {
                     VStack {
@@ -33,15 +33,6 @@ struct PokemonSelectionView: View {
 //            }
     }
 }
-
-//extension PokemonSelectionView {
-//    func binding(for pokemon: Pokemon) -> Binding<Pokemon> {
-//        guard let index = pokemonManager.index(of: pokemon) else {
-//            fatalError("Pokemon not found!")
-//        }
-//        return $pokemonManager.pokemons[index]
-//    }
-//}
 
 #Preview {
     PokemonSelectionView(surprisePokemons: Pokemon.samplePokemons)/*.environmentObject(PokemonManager())*/
