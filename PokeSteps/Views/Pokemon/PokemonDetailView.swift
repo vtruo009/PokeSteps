@@ -11,10 +11,6 @@ struct PokemonDetailView: View {
     @EnvironmentObject var viewModel: ViewModel
     let pokemon: Pokemon
     
-    private let adaptiveColumns = [
-        GridItem(.adaptive(minimum: 100))
-    ]
-    
     var body: some View {
         VStack {
             PokemonView(pokemon: pokemon)
@@ -26,7 +22,7 @@ struct PokemonDetailView: View {
                 }
                 VStack{
                     Text("**Type**")
-                    LazyVGrid(columns: adaptiveColumns) {
+                    HStack(spacing: 15) {
                         ForEach(viewModel.pokemonDetails?.types ?? [], id: \.slot) { type in
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(width: 100, height: 35)
@@ -37,7 +33,6 @@ struct PokemonDetailView: View {
                                 }
                         }
                     }
-                    .frame(width: 250, height: .infinity)
                 }
                 .padding()
             }
