@@ -15,7 +15,7 @@ class ViewModel: ObservableObject {
     @Published var pokemonDetails: PokemonDetail?
     @Published var searchText = ""
     
-    var filteredPokemon: [Pokemon] {
+    var filteredPokemons: [Pokemon] {
         return searchText == "" ? pokemonList : pokemonList.filter {
             $0.name.contains(searchText.lowercased())
         }
