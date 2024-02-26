@@ -26,36 +26,22 @@ struct Pokemon: Codable, Identifiable, Equatable {
     
     let name: String
     let url: String
-    var isUnlocked: Bool = false
-    
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-    }
-    
-    init(name: String, url: String) {
-        self.name = name
-        self.url = url
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.url = try container.decode(String.self, forKey: .url)
-    }
-    
-    func getPokedexID(in url: String) -> Int? {
-        if let id = url.split(separator: "/").last {
-            return Int(id)
-        }
-        return nil
-    }
 }
 
 struct PokemonDetail: Codable {
     let id: Int
     let height: Int
     let weight: Int
+    let types: [PokemonTypes]
+}
+
+struct PokemonTypes: Codable {
+    let slot: Int
+    let type: PokemonType
+}
+
+struct PokemonType: Codable {
+    let name: String
 }
 
 extension Pokemon {
