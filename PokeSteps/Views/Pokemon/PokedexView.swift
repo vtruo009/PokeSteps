@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokedexView: View {
-    @EnvironmentObject var pokemonManager: PokemonManager
+    @StateObject var viewModel = ViewModel()
     
     private let adaptiveColumns = [
         GridItem(.adaptive(minimum: 150))
@@ -18,27 +18,21 @@ struct PokedexView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
-                    ForEach(pokemonManager.filteredPokemons) { pokemon in
-                        PokemonView(viewStyle: .pokedex, pokemon: binding(for: pokemon))
+                    ForEach(viewModel.filteredPokemons) { pokemon in
+                        NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
+                            PokemonView(pokemon: pokemon)
+                        }
                     }
                 }
-                .navigationTitle("Pokemons")
-                .animation(.easeIn(duration: 0.3), value: pokemonManager.filteredPokemons.count)
+                .animation(.easeIn(duration: 0.3), value: viewModel.filteredPokemons.count)
+                .navigationTitle("Pokedex")
             }
-            .searchable(text: $pokemonManager.searchText)
+            .searchable(text: $viewModel.searchText)
         }
-    }
-}
-
-extension PokedexView {
-    func binding(for pokemon: Pokemon) -> Binding<Pokemon> {
-        guard let index = pokemonManager.index(of: pokemon) else {
-            fatalError("Pokemon not found!")
-        }
-        return $pokemonManager.pokemons[index]
+        .environmentObject(viewModel)
     }
 }
 
 #Preview {
-    PokedexView().environmentObject(PokemonManager())
+    PokedexView()
 }
