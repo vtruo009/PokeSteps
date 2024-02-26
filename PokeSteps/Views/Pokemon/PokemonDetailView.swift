@@ -11,14 +11,35 @@ struct PokemonDetailView: View {
     @EnvironmentObject var viewModel: ViewModel
     let pokemon: Pokemon
     
+    private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 100))
+    ]
+    
     var body: some View {
         VStack {
-             PokemonView(pokemon: pokemon)
-            
+            PokemonView(pokemon: pokemon)
             VStack(spacing: 10) {
-                Text("**ID**: \(viewModel.pokemonDetails?.id ?? 0)")
-                Text("**Weight**: \(viewModel.formatHW(value: viewModel.pokemonDetails?.weight ?? 0)) KG")
-                Text("**Height**: \(viewModel.formatHW(value: viewModel.pokemonDetails?.height ?? 0)) M")
+                Text("**No.** \(viewModel.pokemonDetails?.id ?? 0)")
+                HStack {
+                    Text("**Weight**: \(viewModel.formatHW(value: viewModel.pokemonDetails?.weight ?? 0)) KG")
+                    Text("**Height**: \(viewModel.formatHW(value: viewModel.pokemonDetails?.height ?? 0)) M")
+                }
+                VStack{
+                    Text("**Type**")
+                    LazyVGrid(columns: adaptiveColumns) {
+                        ForEach(viewModel.pokemonDetails?.types ?? [], id: \.slot) { type in
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 100, height: 35)
+                                .foregroundColor(AppColor.typeColor[type.type.name])
+                                .overlay {
+                                    Text(type.type.name)
+                                        .font(.system(size: 16, weight: .regular, design: .monospaced))
+                                }
+                        }
+                    }
+                    .frame(width: 250, height: .infinity)
+                }
+                .padding()
             }
         }
         .onAppear {

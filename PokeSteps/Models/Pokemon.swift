@@ -28,7 +28,7 @@ struct Pokemon: Codable, Identifiable, Equatable {
     let url: String
 }
 
-struct PokemonDetail: Codable {
+struct PokemonDetail: Codable, Identifiable {
     let id: Int
     let height: Int
     let weight: Int
@@ -46,6 +46,10 @@ struct PokemonType: Codable {
 
 extension Pokemon {
     static var samplePokemon: Pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
+    static var sampleType: [PokemonTypes] = [
+        PokemonTypes(slot: 1, type: PokemonType(name: "grass")),
+        PokemonTypes(slot: 2, type: PokemonType(name: "poison"))
+    ]
     static var samplePokemons: [Pokemon] = [
         Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
         Pokemon(name: "charmander", url: "https://pokeapi.co/api/v2/pokemon/4/"),
