@@ -145,9 +145,9 @@
 		7C3F4DF12B79900B001D5EA2 /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				7C3F4DEA2B78C257001D5EA2 /* ActivityStatsView.swift */,
 				7C3F4DEE2B794FEE001D5EA2 /* StepCounterView.swift */,
 				7CEA6B6C2B7C1EC20093DFC6 /* ProgressRingView.swift */,
+				7C3F4DEA2B78C257001D5EA2 /* ActivityStatsView.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
