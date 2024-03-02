@@ -1,10 +1,10 @@
-# :lightning_bolt: PokeSteps
+# PokeSteps ⚡️ 
 
 A project inspired by Ash Ketchum's journey on building his team and becoming a Pokemon master. 
 
-## :memo: Description
+## Description 📝 
 
-PokeSteps is a Pokedex with a step counter built into it. The motivation for this application is to help users enjoy their fitness journey. Often times, people feel defeated when they do not see the end result after trying for some time, forfeiting right before the life-changing point. This projects hopes to remind users that "the getting there" is just as important as arriving at the destination.
+PokeSteps is a Pokedex with a step counter built into it. The motivation for this application is to help users enjoy their fitness journey. People often forfeit when the results are not obvious after trying for a period of time. This project hopes to remind users that "the getting there" is just as important as arriving at the destination.
 
 > It's not the destination, it's the journey.
 > 
@@ -14,11 +14,11 @@ PokeSteps is a Pokedex with a step counter built into it. The motivation for thi
 
 <!-- Record a demo video on when goal is achieved and Pokemon is unlocked -->
 
-## 🔨 Getting Started
+## Getting Started 🛠️
 
 In order to interact with this application, you must build it on a physical device rather than a simulator for HealthKit to retrieve step counts.
 
-### :electric_plug: Build project using a cable
+### Build project using a cable 🔌
 
 1. Clone this project
 2. Open project in Xcode
@@ -35,8 +35,7 @@ In order to interact with this application, you must build it on a physical devi
 5. In the toolbar at the top, click on device name and drop down should pop up
 6. Select your iOS device
 
-### 🛜 Build project over network
-
+### Build project over network 🛜
 A couple of requirements before project can be built onto the device over network:
 
 * iOS device must be set up and added as a run destination (follow Build project using a cable)
@@ -53,11 +52,11 @@ Once the above requirements are met, you should be able to select your device as
 
 For visual learners: [Run Your App on Your Physical Device (No Cable)](https://www.youtube.com/watch?v=ld-BWEyAyL0)
 
-## :classical_building: Architecture
+## Architecture 🏗️
 
 PokeSteps is built using the Model-View-ViewModel (MVVM) design pattern.
 
-### :card_index_dividers: Structure
+### Structure 🗃️
 
 ```
 .
@@ -98,7 +97,7 @@ PokeSteps is built using the Model-View-ViewModel (MVVM) design pattern.
 | 8 | Displays all 151 Pokemons |
 | 9 | Reusable view that defines how each Pokemon should be displayed |
 
-## :toolbox: Tools
+## Tools 🧰
 
 * Xcode 15
 * Swift 5.5
