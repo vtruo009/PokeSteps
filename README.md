@@ -62,21 +62,26 @@ PokeSteps is built using the Model-View-ViewModel (MVVM) design pattern.
 .
 ├── PokeSteps
 │   ├── Data
-│   │   ├── PokemonFetchingClient.swift             # No. 1
-│   │   └── pokemon.json                            # No. 2
+│   │   └── pokemon.json                            # No. 1
+│   ├── Helpers
+│   │   └── Helpers.swift                           # No. 2
+│   ├── Managers
+│   │   └── PokemonManager.swift                    # No. 3
+│   │   └── HealthManager.swift                     # No. 4
 │   ├── Models                                      # Contains all models
-│   │   └── Pokemon.swift                           # No. 3
+│   │   └── Pokemon.swift                           # No. 5
 │   ├── PokeStepsApp.swift
 │   ├── ViewModels                                  # Contains all ViewModels
-│   │   ├── HealthManager.swift                     # No. 4
-│   │   └── PokemonManager.swift                    # No. 5
+│   │   ├── AppColor.swift                          # No. 6
+│   │   └── ViewModel.swift                         # No. 7
 │   └── Views
 │       ├── Health                                  # Contains all user health stats related views
-│       │   ├── ActivityCardView.swift              # No. 6
-│       │   └── StepCounterView.swift               # No. 7
+│       │   ├── ProgressRingView.swift              # No. 8
+│       │   └── StepCounterView.swift               # No. 9
 │       └── Pokemon                                 # Contains all Pokemon related views
-│           ├── PokedexView.swift                   # No. 8
-│           └── PokemonView.swift                   # No. 9
+│           ├── PokedexView.swift                   # No. 10
+│           ├── PokemonDetailView.swift             # No. 11
+│           └── PokemonView.swift                   # No. 12
 ├── PokeStepsTests                                  # Contains all unit tests for project models
 │   └── PokeStepsTests.swift
 ├── PokeStepsUITests                                # Contains all UI tests for project views
@@ -87,8 +92,8 @@ PokeSteps is built using the Model-View-ViewModel (MVVM) design pattern.
 
 | No. | Details |
 | ---- | ------- |
-| 1 | Client that makes the call to PokemonAPI to fetch the Pokemons JSON data. |
-| 2 | Contains the JSON for the first 151 Pokemons. Used for development & testing purpose to avoid hitting the API multiple times for the same data. |
+| 1 | Contains the JSON for the first 151 Pokemons. |
+| 2 | Contains reusable helper functions for application. |
 | 3 | Model containing the Pokemon struct, defining all the properties of a `Pokemon`. |
 | 4 | Manages the HealthKit integration and Health data |
 | 5 | Manages Pokemon data |
